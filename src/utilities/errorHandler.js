@@ -2,7 +2,7 @@ const BaseError = require('../errors/base.error');
 
 const {StatusCodes} = require('http-status-codes');
 
-function errorHandler(err,req,res,next){
+function errorHandler(err,req,res,next){ // as this function is handling an error there must be 4 parameters for the function.
     if(err instanceof BaseError){
         return res.status(err.statusCode).json({
             success:false,

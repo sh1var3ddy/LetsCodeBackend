@@ -17,6 +17,7 @@ app.get("/ping",(req,res)=>{
 })
 // last middleware if any error comes
 app.use(errorHandler);
+// express has defualt error handler it errorHandler middleware is not used default error handler is triggered
 app.listen(PORT,()=>{
     console.log(`Server is running at PORT ${PORT}`);
 })
