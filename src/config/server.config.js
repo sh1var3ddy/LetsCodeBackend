@@ -1,9 +1,9 @@
-const dotenv = require('dotenv');
+const path = require('path');
 
-dotenv.config();
+require('dotenv').config({ path : path.resolve(__dirname, '.env') });
 
-module.exports={
-    PORT:process.env.PORT || 3000,
-    ATLAS_DB_URL : process.env.ATLAS_DB_URL,
-    NODE_ENV : process.env.NODE_ENV,
+module.exports = {
+    PORT: process.env.PORT || 3000,
+    ATLAS_DB_URL: process.env.ATLAS_DB_URL,
+    NODE_ENV: process.env.NODE_ENV,
 }
