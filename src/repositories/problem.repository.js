@@ -16,6 +16,20 @@ class ProblemRepository{
             throw error;
         }
     }
+    async updateProblem(id,updateData){
+        try{
+            const problem = await Problem.findByIdAndUpdate({_id:id},updateData);
+            if (!problem) {
+                throw new NotFound("Problem",id);
+              } else {
+                console.log('Document updated successfully');
+              }
+            return problem;
+        }catch(error){
+            console.log(error);
+            throw error;
+        }
+    }
     async getAllProblems(){
         try{
             const problems = await Problem.find({});
@@ -36,7 +50,22 @@ class ProblemRepository{
             console.log(error);
             throw error;
         }
-    }   
+    } 
+    async deleteProblem(id){
+        try {
+            const result = await Problem.deleteOne({ _id: id });
+            console.log(result);
+            if(result.deletedCount===0){
+                throw new NotFound("Problem",id);
+            }else {
+                console.log('Document deleted successfully');
+            }
+            return result;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }  
 }
 
 module.exports = ProblemRepository;
