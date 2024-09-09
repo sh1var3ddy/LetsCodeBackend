@@ -25,14 +25,21 @@ async function addProblem(req,res,next){
 
 function getProblem(req,res){
     try{
-        throw new NotImplemented('getProblem');
+        throw new NotImplemented('getProblems');
     }catch(error){
         next(error);
-    }}
+    }
+}
 
-function getProblems(req,res){
+async function getProblems(req,res){
     try{
-        throw new NotImplemented('getProblems');
+        const response  = await problemService.getAllProblems();
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message: 'Successfully got all problems',
+            error:{},  
+            data:response
+        })
     }catch(error){
         next(error);
     }

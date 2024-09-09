@@ -15,12 +15,13 @@ class ProblemRepository{
             throw error;
         }
     }
-    async getProblems(){
+    async getAllProblems(){
         try{
             const problems = await Problem.find({});
-            return problems
+            return problems;
         }catch(error){
-
+            console.log(error);
+            throw error;
         }
     }
 }
