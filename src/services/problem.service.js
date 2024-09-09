@@ -5,10 +5,10 @@ class ProblemService{
         this.problemRepository = problemRepository;
     }
     async createProblem(problemData){
-        console.log("========== createProblem inside service==========");
+        // console.log("========== createProblem inside service==========");
             // 1.  sanitize the markdown for description
         problemData.description = sanitizeMarkdownContent(problemData.description);
-        console.log("Sanitized input",problemData);
+        // console.log("Sanitized input",problemData);
         const problem = await this.problemRepository.createProblem(problemData);
         return problem;
     }
@@ -25,6 +25,7 @@ class ProblemService{
         return result;
     }
     async updateProblem(id,updateData){
+        updateData.description = sanitizeMarkdownContent(updateData.description);
         const result = await this.problemRepository.updateProblem(id,updateData);
         return result;
     }
