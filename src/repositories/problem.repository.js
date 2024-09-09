@@ -4,7 +4,6 @@ class ProblemRepository{
     async createProblem(problemData){
         console.log("createProblem inside problem repository");
         try{
-            throw {"new":"some error occured"}
             const problem = await Problem.create({
                 title:problemData.title,
                 description:problemData.description,
@@ -14,6 +13,14 @@ class ProblemRepository{
         }catch(error){
             console.log(error);
             throw error;
+        }
+    }
+    async getProblems(){
+        try{
+            const problems = await Problem.find({});
+            return problems
+        }catch(error){
+
         }
     }
 }
