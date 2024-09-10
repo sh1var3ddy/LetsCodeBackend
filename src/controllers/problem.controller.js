@@ -10,7 +10,7 @@ function pingProblemController(req,res){
 
 async function addProblem(req,res,next){
     try{
-        console.log("====== Add problem called inside controllers =====");
+        // console.log("====== Add problem called inside controllers =====");
         const newproblem  = await problemService.createProblem(req.body);
         return res.status(StatusCodes.CREATED).json({
             success:true,
