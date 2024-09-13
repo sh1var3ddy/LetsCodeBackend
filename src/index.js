@@ -6,6 +6,7 @@ const errorHandler = require('./utilities/errorHandler');
 const connectToDB = require('./config/db.config');
 const { Problem } = require('./models');
 const app = express();
+// const {END_POINT,COSMOS_PRIMARYKEY} = require('./config/server.config');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -22,4 +23,5 @@ app.use(errorHandler);
 app.listen(PORT,async ()=>{
     console.log(`Server is running at PORT ${PORT}`);
     await connectToDB();
+    // console.log(END_POINT,COSMOS_PRIMARYKEY);
 })
