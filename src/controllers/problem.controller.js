@@ -3,10 +3,10 @@ const {ProblemService} = require('../services/index');
 const {ProblemRepository} = require('../repositories/index');
 const { StatusCodes } = require('http-status-codes');
 const problemService = new ProblemService(new ProblemRepository())
-const logger = require("../config/logger.config")
+// const logger = require("../config/logger.config")
 function pingProblemController(req,res){
-    logger.error("ping error logs for ping controller");
-    return res.json({message:"Ping check from ping problem controller"});
+    // logger.error("ping error logs for ping controller");
+    return res.status(200).json({message:"Ping check from ping problem controller"});
 }
 
 async function addProblem(req,res,next){

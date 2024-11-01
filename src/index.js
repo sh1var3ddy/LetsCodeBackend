@@ -5,6 +5,8 @@ const apiRouter = require('./routes/index');
 const errorHandler = require('./utilities/errorHandler');
 const connectToDB = require('./config/db.config');
 const { Problem } = require('./models');
+const { ProblemService } = require('./services');
+const { problemController } = require('./controllers');
 const app = express();
 // const {END_POINT,COSMOS_PRIMARYKEY} = require('./config/server.config');
 

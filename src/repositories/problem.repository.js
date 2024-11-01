@@ -1,4 +1,4 @@
-const logger = require('../config/logger.config');
+// const logger = require('../config/logger.config');
 const NotFound = require('../errors/notfounderror');
 const {Problem} = require('../models/index');
 
@@ -56,7 +56,7 @@ class ProblemRepository{
         try {
             const result = await Problem.deleteOne({ _id: id });
             if(result.deletedCount===0){
-                logger.error(`Problem with id: ${id} not found in the db.`)
+                // logger.error(`Problem with id: ${id} not found in the db.`)
                 throw new NotFound("Problem",id);
             }else {
                 console.log('Document deleted successfully');
