@@ -27,6 +27,27 @@ const problemSchema  = new mongoose.Schema({
             }
         }
     ],
+    codeStubs:[
+        {
+            language:{
+                type:String,
+                enum:['CPP','JAVA','PYTHON'],
+                required:true
+            },
+            startSnippet:{
+                type:String,
+                required:true
+            },
+            endSnippet:{
+                type:String,
+                required:true
+            },
+            userSnippet:{
+                type:String,
+                required:true
+            }
+        }
+    ],
     editorial:{
         type:String
     }
